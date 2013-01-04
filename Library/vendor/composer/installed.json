@@ -1,0 +1,30 @@
+[
+    {
+        "name": "xuanyan/database",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/xuanyan/Database.git",
+            "reference": "4585f64f28c1bbacf0cde7b80ebe6318f00c21e3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/xuanyan/Database/archive/4585f64f28c1bbacf0cde7b80ebe6318f00c21e3.zip",
+            "reference": "4585f64f28c1bbacf0cde7b80ebe6318f00c21e3",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2012-11-27 06:58:27",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "Database.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/"
+    }
+]
