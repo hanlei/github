@@ -175,3 +175,37 @@ function redirect($url = '') {
     header('Location: ' . $url);
     exit;
 }
+
+function getDir($dir , $fileArray = array()) {
+	if (false != ($handle = opendir ( $dir ))) {
+			while ( false !== ($file = readdir ( $handle )) ) {
+			$path = $dir . DIRECTORY_SEPARATOR . $file;
+			
+			if (is_file($path) && $file != ".DS_Store") {
+				$key = substr($path, strlen(ROOT_PATH));
+				$fileArray[$key] = $path;
+			}
+			
+			if (!is_file($path) && $file != "." && $file != ".." && strpos($file,".")!==0) {
+				$arraytmp = getDir($path);
+				foreach($arraytmp as $tmp){
+					$key = substr($tmp, strlen(ROOT_PATH));
+					$fileArray[$key] = $tmp;
+				}
+			}
+		}
+		//关闭句柄
+		closedir ( $handle );
+	}
+	return $fileArray;
+}
+
+function diff_files($local = array(),$remote = array()){
+	$diff = array();
+	foreach($local as $key=>$value){
+		if (!isset($remote[$key])){
+			array_push($diff,$key);
+		} 
+	}
+	return $diff; 
+}
